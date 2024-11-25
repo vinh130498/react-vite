@@ -5,30 +5,23 @@ const TodoData = (props) => {
     //     age: 26,
     //     data: {}
     // }
-    //const { mame, ...test } = props;
-    const { name, age, data, todoList } = props;
-
-    console.log("check props: ", props);
+    // const { name, ...test } = props;
+    // const { name, age, data, todoList } = props;
+    const { todoList } = props;
 
     return (
         <div className='todo-data'>
             {todoList.map((item, index) => {
                 console.log("check map", item, index)
                 return (
-                    <div className="todo-item">
-                        <div>
-                            {item.name}
-                        </div>
+                    <div className={`todo-item`} key={item.id}>
+                        <div>{item.name}</div>
                         <button
                             style={{ cursor: "pointer" }}
                         >Delete</button>
                     </div>
                 )
             })}
-
-            <div>
-                {JSON.stringify(todoList)}
-            </div>
         </div >
     );
 }
